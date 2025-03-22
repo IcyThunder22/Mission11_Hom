@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Mission11_Hom.Data;
 
@@ -16,11 +17,29 @@ namespace Mission11_Hom.Controllers
         }
 
         [HttpGet(Name = "GetBooks")]
-        public IEnumerable<Book> Get()
+        public IActionResult GetBooks(int pageNum, int pageSize, bool sort = false)
         {
-            var BooksList = _context.Books.ToList();
+            var query = _context.Books.AsQueryable();
 
-            return (BooksList);
+            if (sort) 
+            { 
+                query = query.OrderBy(b => b.Title);
+            }
+            
+            var BooksList = query
+                .Skip((pageNum - 1) * pageSize )
+                .Take(pageSize)
+                .ToList();
+
+            var totalNumBooks = _context.Books.Count();
+
+            var both = new
+            {
+                Books = BooksList,
+                Total = totalNumBooks
+            };
+
+            return Ok(both);
         }
 
     }
