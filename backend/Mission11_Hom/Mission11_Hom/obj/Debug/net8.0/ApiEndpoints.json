@@ -1,23 +1,29 @@
 [
   {
     "ContainingType": "Mission11_Hom.Controllers.BooksController",
-    "Method": "Get",
+    "Method": "GetBooks",
     "RelativePath": "Books",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
+    "Parameters": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Mission11_Hom.Data.Book, Mission11_Hom, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
+        "Name": "pageNum",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "sort",
+        "Type": "System.Boolean",
+        "IsRequired": false
       }
     ],
+    "ReturnTypes": [],
     "EndpointName": "GetBooks"
   },
   {
