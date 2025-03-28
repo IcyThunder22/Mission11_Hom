@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -46,6 +46,10 @@
               "IsPinned": true
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "BookController.cs",
@@ -53,7 +57,7 @@
               "RelativeDocumentMoniker": "Mission11_Hom\\Controllers\\BookController.cs",
               "ToolTip": "C:\\Users\\mayan\\Desktop\\Mission11_Hom\\backend\\Mission11_Hom\\Mission11_Hom\\Controllers\\BookController.cs",
               "RelativeToolTip": "Mission11_Hom\\Controllers\\BookController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAYwBwAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAgAAAAkOMuwCMAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T19:16:48.43Z",
               "EditorCaption": ""
