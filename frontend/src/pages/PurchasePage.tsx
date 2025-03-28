@@ -3,13 +3,25 @@ import { useCart } from "../context/CartContext";
 import { useState } from "react";
 import { CartItem } from "../types/CartItem";
 
-function Purchase() {
+function PurchasePage() {
   const navigate = useNavigate();
   const location = useLocation();
   const { title, price } = location.state || {};
   const { bookId } = useParams();
   const { addToCart } = useCart();
   const [amount, setAmount] = useState<number>(1);
+
+  if (!location.state) {
+    return (
+      <div className="container mt-5">
+        <h2>Book not found</h2>
+        <button className="btn btn-primary" onClick={() => navigate('/')}>
+          Return to Book List
+        </button>
+      </div>
+    );
+  }
+  
 
   const handleAddToCart = () => {
     const newItem: CartItem = {
@@ -44,4 +56,4 @@ function Purchase() {
   );
 }
 
-export default Purchase;
+export default PurchasePage;
