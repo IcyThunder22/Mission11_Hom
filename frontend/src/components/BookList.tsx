@@ -23,10 +23,10 @@ function BooksList({ selectedCategories }: { selectedCategories: string[] }) {
       const data = await response.json();
       setBooks(data.books);
       setTotalBooks(data.total);
-      setTotalPages(Math.ceil(totalBooks / pageSize));
+      setTotalPages(Math.ceil(data.total / pageSize));
     };
     fetchBook();
-  }, [pageSize, pageNum, sortByTitle, totalBooks, selectedCategories]);
+  }, [pageSize, pageNum, sortByTitle, selectedCategories]);
 
   return (
     <>
@@ -69,14 +69,16 @@ function BooksList({ selectedCategories }: { selectedCategories: string[] }) {
               </li>
               <li>
                 <strong>Price: </strong>
-                {b.price}
+                ${b.price}
               </li>
             </ul>
 
             <button
               className="btn btn-success"
               onClick={() =>
-                navigate(`/purchase/${b.title}/${b.bookID}`)
+                navigate(`/purchase/${b.title}`,{
+                  state: {title: b.title, price: b.price}
+                })
               }
             >
               Purchase

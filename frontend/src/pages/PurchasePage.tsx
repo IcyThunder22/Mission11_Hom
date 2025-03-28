@@ -1,32 +1,38 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
-import { useState } from 'react';
-import { CartItem } from '../types/CartItem';
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+import { useState } from "react";
+import { CartItem } from "../types/CartItem";
 
 function Purchase() {
   const navigate = useNavigate();
-  const { title, bookId } = useParams();
+  const location = useLocation();
+  const { title, price } = location.state || {};
+  const { bookId } = useParams();
   const { addToCart } = useCart();
-  const [amount, setAmount] = useState<number>(0);
+  const [amount, setAmount] = useState<number>(1);
 
   const handleAddToCart = () => {
     const newItem: CartItem = {
       bookId: Number(bookId),
-      title: title || 'Unknown Book',
-      price: amount,
+      title: title || "Unknown Book",
+      price: price || 0,
+      quantity: amount,
     };
     addToCart(newItem);
-    navigate('/cart');
+    navigate("/cart");
   };
 
   return (
     <>
-      <h2>Add {title} to your cart</h2>
+      <h2>
+        Add <strong>{title}</strong> to your cart – ${price?.toFixed(2)}
+      </h2>
 
       <div>
         <input
           type="number"
-          placeholder="Enter amount"
+          min={1}
+          placeholder="Enter quantity"
           value={amount}
           onChange={(x) => setAmount(Number(x.target.value))}
         />

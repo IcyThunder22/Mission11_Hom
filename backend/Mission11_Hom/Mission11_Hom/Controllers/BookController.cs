@@ -17,7 +17,7 @@ namespace Mission11_Hom.Controllers
         }
 
         [HttpGet(Name = "GetBooks")]
-        public IActionResult GetBooks(int pageNum, int pageSize, bool sort = false)
+        public IActionResult GetBooks(int pageNum = 1, int pageSize = 5, bool sort = false, [FromQuery] List<string>? bookTypes = null)
         {
             var query = _context.Books.AsQueryable();
 
@@ -25,13 +25,17 @@ namespace Mission11_Hom.Controllers
             { 
                 query = query.OrderBy(b => b.Title);
             }
+            if (bookTypes != null && bookTypes.Any())
+            {
+                query = query.Where(b => bookTypes.Contains(b.Category));
+            }
             
             var BooksList = query
                 .Skip((pageNum - 1) * pageSize )
                 .Take(pageSize)
                 .ToList();
 
-            var totalNumBooks = _context.Books.Count();
+            var totalNumBooks = query.Count();
 
             var both = new
             {
