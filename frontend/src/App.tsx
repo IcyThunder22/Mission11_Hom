@@ -1,5 +1,5 @@
 import "./App.css";
-import BooksList from "./BookList";
+import BooksList from "./components/BookList";
 
 function App() {
   return (
