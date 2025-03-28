@@ -35,7 +35,7 @@ function CartPage() {
       <h4>Total: ${totalPrice.toFixed(2)}</h4>
 
       <div className="d-flex gap-2">
-        <button className="btn btn-secondary" onClick={() => navigate(-1)}>
+        <button className="btn btn-secondary" onClick={() => navigate("/books")}>
           Continue Browsing
         </button>
         <button className="btn btn-primary" disabled={cart.length === 0}>
