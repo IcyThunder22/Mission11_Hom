@@ -75,11 +75,16 @@ function BooksList({ selectedCategories }: { selectedCategories: string[] }) {
 
             <button
               className="btn btn-success"
-              onClick={() =>
-                navigate(`/purchase/${b.bookID}`,{
-                  state: {title: b.title, price: b.price}
-                })
-              }
+              onClick={() => {
+                sessionStorage.setItem(
+                  "purchase",
+                  JSON.stringify({ title: b.title, price: b.price })
+                );
+                navigate(`/purchase/${b.bookID}`, {
+                  state: { title: b.title, price: b.price },
+                });
+              }}
+              
             >
               Purchase
             </button>

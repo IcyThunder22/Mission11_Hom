@@ -46,5 +46,18 @@ namespace Mission11_Hom.Controllers
             return Ok(both);
         }
 
+        [HttpGet("GetBookTypes")]
+        public IActionResult GetBookTypes()
+        {
+            var categories = _context.Books
+                .Select(b => b.Category)
+                .Distinct()
+                .OrderBy(c => c)
+                .ToList();
+
+            return Ok(categories);
+        }
+
+
     }
 }

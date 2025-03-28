@@ -32,6 +32,16 @@
     "EndpointName": "GetBooks"
   },
   {
+    "ContainingType": "Mission11_Hom.Controllers.BooksController",
+    "Method": "GetBookTypes",
+    "RelativePath": "Books/GetBookTypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Mission11_Hom.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
