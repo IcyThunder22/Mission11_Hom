@@ -7,16 +7,16 @@ function Books() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-4 px-4">
        <CartSummary />
       <div className="row">
-        <div className="col-md-3">
+        <div className="col-auto pe-4">
           <CategoryFilter
             selectedCategories={selectedCategories}
             setSelectedCategories={setSelectedCategories}
           />
         </div>
-        <div className="col-md-9">
+        <div className="col">
           <BookList selectedCategories={selectedCategories} />
         </div>
       </div>

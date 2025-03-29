@@ -36,18 +36,18 @@ function CategoryFilter({
 
   return (
     <div className="category-filter">
-      <h5>Book Types</h5>
+      <h5>Book Categories</h5>
       <div className="category-list">
         {categories.map((c) => (
-          <div key={c} className="category-item">
+          <div key={c} className="category-item d-flex align-items-center">
             <input
               type="checkbox"
               id={c}
               value={c}
-              className="category-checkbox"
+              className="category-checkbox me-2"
               onChange={handleCheckboxChange}
             />
-            <label htmlFor={c}>{c}</label>
+            <label htmlFor={c} className="form-check-label text-nowrap">{c}</label>
           </div>
         ))}
       </div>
