@@ -1,6 +1,0 @@
-@Mission11_Hom_HostAddress = http://localhost:5007
-
-GET {{Mission11_Hom_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
